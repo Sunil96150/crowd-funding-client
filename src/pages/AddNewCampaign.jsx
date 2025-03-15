@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2'
 
 const AddNewCampaign = () => {
 
@@ -12,10 +13,34 @@ const handelAddCampaign = e =>{
     const campaignType = form.campaignType.value
     const city = form.city.value
     const photo = form.photo.value
+    const Description = form.Description.value
     
-    const newCampaign = {campaign , porpuse, campaignType , city , photo}
+    const newCampaigns = {campaign , porpuse, campaignType , city , photo, Description}
 
-    console.log(newCampaign)
+    console.log(newCampaigns)
+
+    //send server side
+  fetch('http://localhost:5000/AllCampaigns' , {
+    method : 'POST',
+    headers :{
+        'content-type' : 'application/json'
+    },
+    body : JSON.stringify(newCampaigns)
+  } )
+  .then(res => res.json())
+  .then(data =>{
+    console.log(data)
+
+
+    if(data.insertedId){
+        Swal.fire({
+            title: 'Success!',
+            text: 'Campaign Add successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+    }
+  })
 }
 
 
@@ -53,6 +78,10 @@ const handelAddCampaign = e =>{
                 <div className='mb-10'>
                         <p className='pb-2'>Photo URL</p> 
                         <input className='md:w-full pl-4 p-1 border-gray-300 border-2 rounded-md' type="text" name='photo' placeholder='Photo URL' required />
+                    </div>
+                    <div className='mb-10'>
+                        <p className='pb-2'>Description</p> 
+                        <input className='md:w-full pl-4 p-1 border-gray-300 border-2 rounded-md textarea' type="text" name='Description' placeholder='Description'  required />
                     </div>
                     <input type="submit" value="Add Campaign" className="btn btn-block" />
                
