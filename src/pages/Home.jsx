@@ -85,7 +85,7 @@ const Home = () => {
             
 {/* added  the campaigner */}
 
-            <p> campaigns : {campaigns.length} </p>
+            
           <div className='grid md:grid-cols-3 gap-6 p-6'>
                 
           {
