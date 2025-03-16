@@ -8,6 +8,7 @@ const Navber = () => {
     const Home = <Link to ="/">Home</Link>
     const AddMyCampaingn = <Link to ="/AddNewCampaign">AddNewCampaingn</Link>
     const Donations = <Link to ="/donations">Donations</Link>
+    const Users = <Link to ="/users">Users</Link>
    
 
 
@@ -28,6 +29,7 @@ const Navber = () => {
         <li className={linkClass}>{Home}</li>
         <li className={linkClass}>{AddMyCampaingn}</li>
         <li className={linkClass}>{Donations}</li>
+        <li className={linkClass}>{Users}</li>
        
       </ul>
     </div>
@@ -38,6 +40,7 @@ const Navber = () => {
       <li className={linkClass}>{Home}</li>
       <li className={linkClass}>{AddMyCampaingn}</li>
       <li className={linkClass}>{Donations}</li>
+      <li className={linkClass}>{Users}</li>
     </ul>
   </div>
   <div className="navbar-end">

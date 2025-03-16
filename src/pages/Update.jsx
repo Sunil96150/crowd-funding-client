@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Update = () => {
     const loadedCampaign = useLoaderData();
-    const [campaigns , setCampaigns] = useState(loadedCampaign)
+    
 
     const {_id ,name , porpuse, campaignType , city , photo, Description} = loadedCampaign || {} ;
 
@@ -45,8 +45,7 @@ const Update = () => {
                 confirmButtonText: 'Cool'
               })
 
-              const remaining = campaigns.filter(camp => camp._id !== _id)
-              setCampaigns(remaining)
+             
         }
       })
     }

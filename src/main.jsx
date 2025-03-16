@@ -14,6 +14,11 @@ import AddNewCampaign from './pages/AddNewCampaign';
 import Donations from './pages/Donations';
 import SeeMore from './pages/SeeMore';
 import Update from './pages/Update';
+import SignUp from './pages/SignUp';
+import AuthProvider from './provider/AuthProvider';
+import Users from './pages/Users';
+
+
 
 const router = createBrowserRouter([
   {
@@ -32,8 +37,9 @@ const router = createBrowserRouter([
       },
       {
         path:"/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
+     
       {
         path: "/AddNewCampaign",
         element: <AddNewCampaign></AddNewCampaign>
@@ -52,6 +58,15 @@ const router = createBrowserRouter([
         path: '/UpdateCampaign/:id',
         element: <Update></Update>,
         loader: ({params})=> fetch(`http://localhost:5000/AllCampaigns/${params.id}`)
+      },
+      {
+        path: '/signup',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: '/users',
+        element:<Users></Users>,
+        loader: () => fetch('http://localhost:5000/users'),
       }
     ],
   },
@@ -60,6 +75,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+      <AuthProvider>
+      <RouterProvider router={router} />
+      </AuthProvider>
   </StrictMode>,
 )
