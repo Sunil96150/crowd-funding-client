@@ -6,7 +6,6 @@ const Navber = () => {
     const linkClass =({ isActive }) => `hover:underline transition-colors duration-300 ${ isActive ? "text-blue-700" : "text-gray-600"}`;
 
     const Home = <Link to ="/">Home</Link>
-    const AllCampaingn = <Link to ="/AllCampaign">AllCampaingn</Link>
     const AddMyCampaingn = <Link to ="/AddNewCampaign">AddNewCampaingn</Link>
     const Donations = <Link to ="/donations">Donations</Link>
    
@@ -27,7 +26,6 @@ const Navber = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li className={linkClass}>{Home}</li>
-        <li className={linkClass}><a>{AllCampaingn}</a></li>
         <li className={linkClass}>{AddMyCampaingn}</li>
         <li className={linkClass}>{Donations}</li>
        
@@ -38,7 +36,6 @@ const Navber = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <li className={linkClass}>{Home}</li>
-      <li className={linkClass}>{AllCampaingn}</li>
       <li className={linkClass}>{AddMyCampaingn}</li>
       <li className={linkClass}>{Donations}</li>
     </ul>

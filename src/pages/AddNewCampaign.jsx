@@ -8,14 +8,14 @@ const handelAddCampaign = e =>{
 
     const form = e.target;
 
-    const campaign = form.campaign.value
+    const name = form.name.value
     const porpuse = form.porpuse.value
     const campaignType = form.campaignType.value
     const city = form.city.value
     const photo = form.photo.value
     const Description = form.Description.value
     
-    const newCampaigns = {campaign , porpuse, campaignType , city , photo, Description}
+    const newCampaigns = {name , porpuse, campaignType , city , photo, Description}
 
     console.log(newCampaigns)
 
@@ -47,7 +47,7 @@ const handelAddCampaign = e =>{
 
 
     return (
-        <div className=' bg-orange-100 px-20 py-10'>
+        <div className=' bg-orange-50 px-20 py-10'>
             <div className='py-10'>
                 <h2 className="text-3xl text-center font-extrabold"> Add Campaign</h2>
                 <p className=''></p>
@@ -56,7 +56,7 @@ const handelAddCampaign = e =>{
                 <div className=' md:flex gap-5 '>
                     <div className='md:w-1/2 mb-10 '>
                         <p className='pb-2'>Campaign Name</p> 
-                        <input className='md:w-full pl-4 py-1 border-gray-300 border-2 rounded-md' type="text" name='campaign' placeholder='Campaign Name' required />
+                        <input className='md:w-full pl-4 py-1 border-gray-300 border-2 rounded-md' type="text" name='name' placeholder='Campaign Name' required />
                     </div>
                     <div className='md:w-1/2'>
                         <p className='pb-2'>Porpuse</p> 
@@ -83,7 +83,7 @@ const handelAddCampaign = e =>{
                         <p className='pb-2'>Description</p> 
                         <input className='md:w-full pl-4 p-1 border-gray-300 border-2 rounded-md textarea' type="text" name='Description' placeholder='Description'  required />
                     </div>
-                    <input type="submit" value="Add Campaign" className="btn btn-block" />
+                    <input type="submit" value="Add Campaign" className="btn btn-block btn-neutral" />
                
             </form>
         </div>

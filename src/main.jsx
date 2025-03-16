@@ -12,6 +12,8 @@ import AllCampaign from './pages/AllCampaign';
 import Login from './pages/login';
 import AddNewCampaign from './pages/AddNewCampaign';
 import Donations from './pages/Donations';
+import SeeMore from './pages/SeeMore';
+import Update from './pages/Update';
 
 const router = createBrowserRouter([
   {
@@ -21,11 +23,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader : () => fetch('http://localhost:5000/AllCampaigns')
       },
       {
         path: "/AllCampaign",
-        element: <AllCampaign> </AllCampaign>
+        element: <AllCampaign></AllCampaign>,
       },
       {
         path:"/login",
@@ -37,7 +40,18 @@ const router = createBrowserRouter([
       },
       {
         path: "/donations",
-        element: <Donations></Donations>
+        element: <Donations></Donations>,
+        
+      },
+      {
+        path: '/SeeMore',
+        element: <SeeMore></SeeMore>,
+        loader : () => fetch('http://localhost:5000/AllCampaigns')
+      },
+      {
+        path: '/UpdateCampaign/:id',
+        element: <Update></Update>,
+        loader: ({params})=> fetch(`http://localhost:5000/AllCampaigns/${params.id}`)
       }
     ],
   },

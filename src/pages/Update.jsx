@@ -1,0 +1,99 @@
+import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
+const Update = () => {
+    const loadedCampaign = useLoaderData();
+    const [campaigns , setCampaigns] = useState(loadedCampaign)
+
+    const {_id ,name , porpuse, campaignType , city , photo, Description} = loadedCampaign || {} ;
+
+    const handelUptadeCampaign = e =>{
+        e.preventDefault();
+    
+        const form = e.target;
+    
+        const name = form.name.value
+        const porpuse = form.porpuse.value
+        const campaignType = form.campaignType.value
+        const city = form.city.value
+        const photo = form.photo.value
+        const Description = form.Description.value
+        
+        const newCampaigns = {name , porpuse, campaignType , city , photo, Description}
+    
+        console.log(newCampaigns)
+    
+        //send server side
+      fetch(`http://localhost:5000/AllCampaigns/${_id}` , {
+        method : 'PUT',
+        headers :{
+            'content-type' : 'application/json'
+        },
+        body : JSON.stringify(newCampaigns)
+      } )
+      .then(res => res.json())
+      .then(data =>{
+        console.log(data)
+    
+    
+        if(data.modifiedCount > 0){
+            Swal.fire({
+                title: 'Success!',
+                text: 'Campaign Uptade successfully',
+                icon: 'success',
+                confirmButtonText: 'Cool'
+              })
+
+              const remaining = campaigns.filter(camp => camp._id !== _id)
+              setCampaigns(remaining)
+        }
+      })
+    }
+    
+
+    return (
+        <div className=' bg-orange-50 px-20 py-10'>
+        <div className='py-10'>
+            <h2 className="text-3xl text-center font-extrabold">Update Campaign : {name}</h2>
+            <p className=''></p>
+        </div>
+        <form onSubmit={handelUptadeCampaign}>
+            <div className=' md:flex gap-5 '>
+                <div className='md:w-1/2 mb-10 '>
+                    <p className='pb-2'>Campaign Name</p> 
+                    <input className='md:w-full pl-4 py-1 border-gray-300 border-2 rounded-md' type="text" name='name' defaultValue={name} placeholder='Campaign Name' required />
+                </div>
+                <div className='md:w-1/2'>
+                    <p className='pb-2'>Porpuse</p> 
+                    <input className='md:w-full pl-4 p-1 border-gray-300 border-2 rounded-md' type="text" name='porpuse' defaultValue={porpuse}  placeholder='porpuse' required />
+                </div>
+            </div>
+            <div className=' md:flex gap-5 '>
+                <div className='md:w-1/2 mb-10 '>
+                    <p className='pb-2'>Type of Campaign</p> 
+                    <input className='md:w-full pl-4 py-1 border-gray-300 border-2 rounded-md' type="text" name='campaignType' defaultValue={campaignType} placeholder='Campaign Type' required />
+                </div>
+                <div className='md:w-1/2'>
+                    <p className='pb-2'>City</p> 
+                    <input className='md:w-full pl-4 p-1 border-gray-300 border-2 rounded-md' type="text" name='city' defaultValue={city} placeholder='City' required />
+                </div>
+                
+               
+            </div>
+            <div className='mb-10'>
+                    <p className='pb-2'>Photo URL</p> 
+                    <input className='md:w-full pl-4 p-1 border-gray-300 border-2 rounded-md' type="text" name='photo' defaultValue={photo} placeholder='Photo URL' required />
+                </div>
+                <div className='mb-10'>
+                    <p className='pb-2'>Description</p> 
+                    <input className='md:w-full pl-4 p-1 border-gray-300 border-2 rounded-md textarea' type="text" name='Description' defaultValue={Description} placeholder='Description'  required />
+                </div>
+                <input type="submit" value="Update Campaign" className="btn btn-block btn-neutral" />
+           
+        </form>
+    </div>
+    );
+};
+
+export default Update;
