@@ -25,7 +25,7 @@ const Update = () => {
         console.log(newCampaigns)
     
         //send server side
-      fetch(`http://localhost:5000/AllCampaigns/${_id}` , {
+      fetch(`https://funding-crowed-server.vercel.app/AllCampaigns/${_id}` , {
         method : 'PUT',
         headers :{
             'content-type' : 'application/json'

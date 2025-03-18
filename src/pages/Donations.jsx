@@ -7,7 +7,7 @@ const Donations = () => {
 
     // ✅ All Campaigns Fetch করা
     useEffect(() => {
-        fetch('http://localhost:5000/AllCampaigns')
+        fetch('https://funding-crowed-server.vercel.app/AllCampaigns')
             .then(res => res.json())
             .then(data => setAllCampaigns(data));
     }, []);
@@ -35,7 +35,7 @@ const Donations = () => {
         };
 
         // ✅ Donation Send করা
-        fetch('http://localhost:5000/AllCampaigns', {
+        fetch('https://funding-crowed-server.vercel.app/AllCampaigns', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(newDonation)

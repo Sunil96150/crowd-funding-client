@@ -20,7 +20,7 @@ const handelAddCampaign = e =>{
     console.log(newCampaigns)
 
     //send server side
-  fetch('http://localhost:5000/AllCampaigns' , {
+  fetch('https://funding-crowed-server.vercel.app/AllCampaigns' , {
     method : 'POST',
     headers :{
         'content-type' : 'application/json'

@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader : () => fetch('http://localhost:5000/AllCampaigns')
+        loader : () => fetch('https://funding-crowed-server.vercel.app/AllCampaigns')
       },
       {
         path: "/AllCampaign",
@@ -52,12 +52,12 @@ const router = createBrowserRouter([
       {
         path: '/SeeMore',
         element: <SeeMore></SeeMore>,
-        loader : () => fetch('http://localhost:5000/AllCampaigns')
+        loader : () => fetch('https://funding-crowed-server.vercel.app/AllCampaigns')
       },
       {
         path: '/UpdateCampaign/:id',
         element: <Update></Update>,
-        loader: ({params})=> fetch(`http://localhost:5000/AllCampaigns/${params.id}`)
+        loader: ({params})=> fetch(`https://funding-crowed-server.vercel.app/AllCampaigns/${params.id}`)
       },
       {
         path: '/signup',
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       {
         path: '/users',
         element:<Users></Users>,
-        loader: () => fetch('http://localhost:5000/users'),
+        loader: () => fetch('https://funding-crowed-server.vercel.app/users'),
       }
     ],
   },

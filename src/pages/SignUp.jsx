@@ -27,7 +27,7 @@ const SignUp = () => {
 
             // users data loaded here in backend
 
-            fetch('http://localhost:5000/users' ,{
+            fetch('https://funding-crowed-server.vercel.app/users' ,{
                 method: 'POST',
                 headers: {
                     'content-type' : 'application/json'

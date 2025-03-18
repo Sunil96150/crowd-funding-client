@@ -5,6 +5,19 @@ import banner3 from '../assets/banner3.webp'
 import banner4 from '../assets/banner4.jpg'
 import { Link, Navigate, useLoaderData } from 'react-router-dom';
 import AllCampaign from './AllCampaign';
+import section1 from '../assets/sec1.jpg'
+import section2 from '../assets/sec2.jpg'
+import section3 from '../assets/sec3.jpg'
+import section4 from '../assets/sec4.jpg'
+import section5 from '../assets/sec5.jpg'
+import section6 from '../assets/sec6.jpg'
+import section7 from '../assets/sec7.jpg'
+import section8 from '../assets/sec8.jpg'
+import section9 from '../assets/sec9.jpg'
+import funding from '../assets/funding.jpg';
+import volunteer from '../assets/volunteer.jpg'
+import quickfunding from '../assets/quickfunding.jpg'
+import donation from '../assets/donation.jpg'
 
 
 
@@ -109,25 +122,34 @@ const Home = () => {
  <h2 className="text-5xl text-center m-8">Explore Industries</h2>
  <div className='md:grid md:grid-cols-3 gap-6 mb-5 md:mb-0 '>
   <figure >
-  <img className='h-80 mb-5 md:mb-0' src='/src/assets/sec1.jpg' alt="" />
+  <img className='h-80 mb-5 md:mb-0' src={section1} alt="" />
   </figure>
   <figure>
-  <img className='h-80 mb-5 md:mb-0' src='/src/assets/sec2.jpg' alt="" />
-  </figure>
-  
-  <figure>
-  <img className='h-80 mb-5 md:mb-0' src='/src/assets/sec4.jpg' alt="" />
-  </figure>
-  
-  <figure>
-  <img className='h-80 mb-5 md:mb-0' src='/src/assets/sec6.jpg' alt="" />
+  <img className='h-80 mb-5 md:mb-0' src={section2} alt="" />
   </figure>
   <figure>
-  <img className='h-80 mb-5 md:mb-0' src='/src/assets/img7.jpg' alt="" />
+  <img className='h-80 mb-5 md:mb-0' src={section3} alt="" />
   </figure>
   
   <figure>
-  <img className='h-80 mb-5 md:mb-0' src='/src/assets/sec9.jpg' alt="" />
+  <img className='h-80 mb-5 md:mb-0' src={section4} alt="" />
+  </figure>
+  <figure>
+  <img className='h-80 mb-5 md:mb-0' src={section5} alt="" />
+  </figure>
+  
+  <figure>
+  <img className='h-80 mb-5 md:mb-0' src={section6} alt="" />
+  </figure>
+  <figure>
+  <img className='h-80 mb-5 md:mb-0' src={section7} alt="" />
+  </figure>
+  <figure>
+  <img className='h-80 mb-5 md:mb-0' src={section8} alt="" />
+  </figure>
+  
+  <figure>
+  <img className='h-80 mb-5 md:mb-0' src={section9} alt="" />
   </figure>
  
   
@@ -146,7 +168,7 @@ const Home = () => {
                   <h2 className=" text-5xl font-extrabold p-3 md:pl-8 leading-tight mb-5 ">“Fundraising is the <br></br> gentle art of teaching <br></br> the joy of giving.” </h2>
              </div>
              <div className='md:w-1/3'>
-                  <img src="/src/assets/funding.jpeg" alt="" />
+                  <img src={funding} alt="" />
              </div>
           </div>
 
@@ -158,7 +180,7 @@ const Home = () => {
     
     {/* Become a Volunteer */}
     <div className="flex items-center gap-4 bg-white p-5 rounded-lg shadow-md">
-      <img className="w-16 h-16 object-cover rounded-full" src="/src/assets/volunteer.jpeg" alt="Volunteer" />
+      <img className="w-16 h-16 object-cover rounded-full" src={volunteer} alt="Volunteer" />
       <div>
         <h2 className="text-lg font-semibold">Become a Volunteer</h2>
         <p className="text-sm text-gray-600">Join a cause and contribute your time to make a difference.</p>
@@ -167,7 +189,7 @@ const Home = () => {
 
     {/* Quick Fundraising */}
     <div className="flex items-center gap-4 bg-white p-5 rounded-lg shadow-md">
-      <img className="w-16 h-16 object-cover rounded-full" src="/src/assets/quickfunding.png" alt="Quick Fundraising" />
+      <img className="w-16 h-16 object-cover rounded-full" src={quickfunding} alt="Quick Fundraising" />
       <div>
         <h2 className="text-lg font-semibold">Quick Fundraising</h2>
         <p className="text-sm text-gray-600">Raise donations fast for causes, projects, or emergencies.</p>
@@ -176,7 +198,7 @@ const Home = () => {
 
     {/* Start Donating */}
     <div className="flex items-center gap-4 bg-white p-5 rounded-lg shadow-md">
-      <img className="w-16 h-16 object-cover rounded-full" src="/src/assets/donation.jpg" alt="Start Donating" />
+      <img className="w-16 h-16 object-cover rounded-full" src={donation} alt="Start Donating" />
       <div>
         <h2 className="text-lg font-semibold">Start Donating</h2>
         <p className="text-sm text-gray-600">Begin contributing to meaningful causes and make an impact.</p>

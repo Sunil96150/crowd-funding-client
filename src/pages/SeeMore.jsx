@@ -29,7 +29,7 @@ const SeeMore = () => {
             //   });
 
 
-            fetch(`http://localhost:5000/AllCampaigns/${id}` , {
+            fetch(`https://funding-crowed-server.vercel.app/AllCampaigns/${id}` , {
                 method: 'DELETE'
             })
             .then(res => res.json())
@@ -55,7 +55,7 @@ const SeeMore = () => {
     }
     return (
         <div>
-            <h2 className='text-3xl font-bold text-center my-8'>See More Campaigns: {allCampaigns.length}</h2>
+           
 
             <div className="grid md:grid-cols-3 gap-6 p-6">
                 {allCampaign.map(campaign => (
