@@ -5,20 +5,20 @@ const Donations = () => {
     const [allCampaigns, setAllCampaigns] = useState([]);
     const [selectedCampaign, setSelectedCampaign] = useState(null);
 
-    // ✅ All Campaigns Fetch করা
+   
     useEffect(() => {
         fetch('https://funding-crowed-server.vercel.app/AllCampaigns')
             .then(res => res.json())
             .then(data => setAllCampaigns(data));
     }, []);
 
-    // ✅ ক্যাম্পেইন সিলেক্ট করা
+    
     const handleCampaignSelect = (id) => {
         const campaign = allCampaigns.find(c => c._id === id);
         setSelectedCampaign(campaign);
     };
 
-    // ✅ Donation Handle করা
+  
     const handelDonatedCampaign = e => {
         e.preventDefault();
 
@@ -34,7 +34,7 @@ const Donations = () => {
             photo: selectedCampaign.photo
         };
 
-        // ✅ Donation Send করা
+       
         fetch('https://funding-crowed-server.vercel.app/AllCampaigns', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
@@ -57,10 +57,10 @@ const Donations = () => {
         <div className="bg-orange-50 px-20 py-10">
             <h2 className="text-3xl text-center font-extrabold">Donate to a Campaign</h2>
 
-            {/* ✅ All Campaigns Display */}
+            
             <div className="mt-5">
-                <h3>Select a Campaign to Donate</h3>
-                <div className="flex gap-5">
+                <h3 className='my-5'>Select a Campaign to Donate</h3>
+                <div className="grid grid-cols-1 md:grid md:grid-cols-3 gap-5">
                     {allCampaigns.map(campaign => (
                         <button 
                             key={campaign._id} 
@@ -73,7 +73,7 @@ const Donations = () => {
                 </div>
             </div>
 
-            {/* ✅ Selected Campaign Data */}
+          
             {selectedCampaign && (
                 <div className="mt-10">
                     <h3 className="text-2xl font-bold">{selectedCampaign.name}</h3>
@@ -83,7 +83,7 @@ const Donations = () => {
                 </div>
             )}
 
-            {/* ✅ Donation Form */}
+          
             {selectedCampaign && (
                 <form onSubmit={handelDonatedCampaign} className="mt-5">
                     <div className="md:flex gap-5">

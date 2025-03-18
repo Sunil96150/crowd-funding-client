@@ -50,7 +50,7 @@ const Users = () => {
 
     return (
             <div>
-                <h2 className="text-5xl">users : {users.length}</h2>
+                
                 <div className="overflow-x-auto">
     <table className="table">
         {/* head */}
